@@ -4,13 +4,13 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 import 'core/const/app_colors.dart';
 import 'core/const/app_sizes.dart';
 import 'core/helper/shared_preferences_helper.dart';
 import 'core/route/route.dart';
-import 'feature/nav_bar/screen/nav_bar_screen.dart';
-import 'dart:math';
+
+
+import 'feature/splash_screen/splash_screen.dart';
 
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {}
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
 
 
 
-      home: NavBarScreen(),
+      home: SplashScreen(),
       builder: EasyLoading.init(),
     );
   }
@@ -59,6 +59,7 @@ class NotGetCertificateScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      backgroundColor: AppColors.primaryColor,
       body: Center(
         child: Text(
           "Certificate not found",

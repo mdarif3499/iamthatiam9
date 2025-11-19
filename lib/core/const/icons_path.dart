@@ -1,6 +1,10 @@
 class IconsPath {
-  static const String home = "assets/icons/home.png";
-  static const String splashIcon = "assets/icons/splash_icon.png";
-  static const String test = "assets/icons/test.png";
+
+  static const String _baseUrl = "assets/icons";
+  static const String home = "$_baseUrl/home.png";
+
+  static const String splashIcon = "$_baseUrl/splash_icon.png";
+  static const String test = "$_baseUrl/test.png";
+  static const String splash = "$_baseUrl/splash.svg";
 
 }
