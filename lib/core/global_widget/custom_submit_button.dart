@@ -70,8 +70,8 @@ class CustomSubmitButton extends StatelessWidget {
                 CustomText(
                   text: text,
 
-                  fontSize: fontSize ?? getWidth(22),
-                  fontWeight: fontWeight ?? FontWeight.w600,
+                  fontSize: fontSize ?? getWidth(18),
+                  fontWeight: fontWeight ?? FontWeight.w500,
                   color: textColor ?? AppColors.white,
                 ),
               ],

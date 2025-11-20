@@ -24,7 +24,7 @@ Future<void> main() async {
 
   await SharedPreferencesHelper().init();
 
-  runApp(MyApp(initialRoute: AppRoutes.onboardingScreen));
+  runApp(MyApp(initialRoute: AppRoutes.splashScreen));
 }
 
 class MyApp extends StatelessWidget {
@@ -44,32 +44,14 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.scaffoldBgColor,
       ),
 
+      initialRoute: initialRoute, // value from constructor
 
+      getPages: AppRoutes.routes,
 
-      home: SplashScreen(),
       builder: EasyLoading.init(),
     );
   }
 }
-
-
-class NotGetCertificateScreen extends StatelessWidget {
-  const NotGetCertificateScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return  Scaffold(
-      backgroundColor: AppColors.primaryColor,
-      body: Center(
-        child: Text(
-          "Certificate not found",
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
-    );
-  }
-}
-
 
 
 
