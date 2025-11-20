@@ -12,7 +12,6 @@ import 'package:get/get.dart';
 import '../controller/varification_code_controller.dart';
 
 
-
 class CustomVerifiedIcon extends StatelessWidget {
   const CustomVerifiedIcon({super.key});
 
