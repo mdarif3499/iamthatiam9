@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-// আপনার কাস্টম পাথগুলো
 import 'package:iamthatiam9/core/const/icons_path.dart';
 import 'package:iamthatiam9/core/global_widget/custom_appbar.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
