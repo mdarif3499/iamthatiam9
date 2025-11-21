@@ -4,13 +4,13 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 import 'core/const/app_colors.dart';
 import 'core/const/app_sizes.dart';
 import 'core/helper/shared_preferences_helper.dart';
 import 'core/route/route.dart';
-import 'feature/nav_bar/screen/nav_bar_screen.dart';
-import 'dart:math';
+
+
+import 'feature/splash_screen/splash_screen.dart';
 
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {}
@@ -24,7 +24,7 @@ Future<void> main() async {
 
   await SharedPreferencesHelper().init();
 
-  runApp(MyApp(initialRoute: AppRoutes.onboardingScreen));
+  runApp(MyApp(initialRoute: AppRoutes.splashScreen));
 }
 
 class MyApp extends StatelessWidget {
@@ -44,31 +44,14 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.scaffoldBgColor,
       ),
 
+      initialRoute: initialRoute, // value from constructor
 
+      getPages: AppRoutes.routes,
 
-      home: NavBarScreen(),
       builder: EasyLoading.init(),
     );
   }
 }
-
-
-class NotGetCertificateScreen extends StatelessWidget {
-  const NotGetCertificateScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return  Scaffold(
-      body: Center(
-        child: Text(
-          "Certificate not found",
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
-    );
-  }
-}
-
 
 
 

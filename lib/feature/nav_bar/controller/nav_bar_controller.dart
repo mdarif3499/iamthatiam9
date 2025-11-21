@@ -5,6 +5,7 @@ import '../../../core/const/app_colors.dart';
 import '../../../core/const/app_sizes.dart';
 import '../../../core/const/icons_path.dart';
 import '../../../main.dart';
+import '../../onboarding/screen/onboarding1_screen.dart';
 
 
 
@@ -20,10 +21,10 @@ class NavBarController extends GetxController {
   }
 
   final List<Widget> screens = [
-    NotGetCertificateScreen(),
-    NotGetCertificateScreen(),
-    NotGetCertificateScreen(),
-    NotGetCertificateScreen(),
+    Onboarding1Screen(),
+    Onboarding1Screen(),
+    Onboarding1Screen(),
+    Onboarding1Screen(),
 
   ];
 

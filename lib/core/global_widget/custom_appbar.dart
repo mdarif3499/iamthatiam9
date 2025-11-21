@@ -42,12 +42,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         onTap: () {
           Get.back();
         },
-        child: Padding(padding: EdgeInsets.only(left: 10), child: leading),
+        child: Padding(padding: EdgeInsets.only(left: 10), child: SizedBox(width: 10,height: 10,child: leading)),
       ),
       title: CustomText(
         text: title,
-        fontSize: 22,
-        fontWeight: FontWeight.w600,
+        fontSize: 18,
+        fontWeight: FontWeight.w700,
         color: AppColors.textBlack,
       ),
       centerTitle: centerTitle,

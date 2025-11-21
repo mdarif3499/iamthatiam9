@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../const/app_colors.dart';
-import '../const/app_sizes.dart';
+import '../../core/const/app_colors.dart';
+import '../../core/const/app_sizes.dart';
 import 'custom_text.dart';
 
 class CustomTextfield extends StatelessWidget {
@@ -19,7 +19,6 @@ class CustomTextfield extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final bool obsecureText;
   final TextAlign? textAlign;
-  final TextDirection? textDirection;
   final TextInputType? textInputType;
   final int? maxLength;
   final bool? isTitle;
@@ -51,7 +50,6 @@ class CustomTextfield extends StatelessWidget {
     this.isPrefix = true,
     this.autofocus,
     this.textAlign,
-    this.textDirection,
     this.validator,
     this.errorText,
   });
@@ -61,28 +59,24 @@ class CustomTextfield extends StatelessWidget {
     final borderRadiusValue = radius ?? 100;
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Title
         if (isTitle ?? true)
           CustomText(
             text: title,
-            fontSize: getWidth(18),
-            fontWeight: FontWeight.w600,
+            fontSize: getWidth(16),
+            fontWeight: FontWeight.w500,
             color: AppColors.textBlack,
           ),
         if (isTitle ?? true) SizedBox(height: getHeight(10)),
 
         Container(
-          padding: EdgeInsets.symmetric(vertical: 14,horizontal: 10),
+          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 16),
           width: double.infinity,
           decoration: BoxDecoration(
-            color: bgColor ?? AppColors.white,
+            color: Color(0xFFE7E7E7),
             borderRadius: BorderRadius.circular(borderRadiusValue),
-            border: Border.all(
-              color: borderColor ?? AppColors.grey,
-              width: 1.5,
-            ),
           ),
           alignment: Alignment.center,
           child: TextFormField(
@@ -90,16 +84,9 @@ class CustomTextfield extends StatelessWidget {
             maxLines: maxLines ?? 1,
             minLines: minLines,
             obscureText: obsecureText,
-            obscuringCharacter: "*",
-            keyboardType: textInputType,
-            readOnly: readOnly ?? false,
-            onTap: onTap,
-            onChanged: onChanged,
-            maxLength: maxLength,
-            autofocus: autofocus ?? false,
-            textAlign: textAlign ?? TextAlign.end,
-            textDirection: textDirection ?? TextDirection.ltr,
-            validator: validator,
+            keyboardType: textInputType ?? TextInputType.text,
+            textDirection: TextDirection.ltr,
+            textAlign: textAlign ?? TextAlign.start,
             style: GoogleFonts.figtree(
               fontSize: getWidth(16, maxWidth: 18),
               fontWeight: FontWeight.w400,
@@ -107,23 +94,27 @@ class CustomTextfield extends StatelessWidget {
             ),
             decoration: InputDecoration(
               hintText: hintext,
-              hintTextDirection: textDirection ?? TextDirection.ltr,
-              isDense: true,
               border: InputBorder.none,
-              contentPadding: EdgeInsets.zero,
-              prefixIcon: (isPrefix ?? true) && prefixIcon != null
-                  ? Padding(
-                padding: EdgeInsets.zero,
-                child: prefixIcon,
-              )
-                  : null,
-              suffixIcon: suffixIcon,
-              hintStyle: GoogleFonts.inter(
-                fontSize: getWidth(16),
+              contentPadding: EdgeInsets.symmetric(vertical: 12),
+              hintStyle: GoogleFonts.figtree(
+                fontSize: getWidth(16, maxWidth: 18),
                 fontWeight: FontWeight.w400,
-                color: AppColors.grey,
+                color: const Color(0xFF6B6B6B),
               ),
-              errorText: errorText,
+              prefixIcon: prefixIcon != null
+                  ? Padding(
+                      padding: EdgeInsets.only(right: 4), // adjust spacing
+                      child: SizedBox(
+                        height: getHeight(25),
+                        width: getWidth(25),
+                        child: prefixIcon, // now size will respect this
+                      ),
+                    )
+                  : null,
+              prefixIconConstraints: BoxConstraints(
+                minWidth: 0, // set to 0 or remove entirely
+                minHeight: 0,
+              ),
             ),
           ),
         ),
